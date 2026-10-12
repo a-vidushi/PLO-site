@@ -1,0 +1,410 @@
+/* =========================================================
+   PLO site styles
+   Layout pieces of the old (2023) site, unscoped from its Vue
+   components, plus a few new components drawn in the same
+   hand-sketched style. Base theme lives in theme.css.
+========================================================= */
+
+a,
+div,
+p,
+span,
+li,
+td,
+th {
+  font-size: 1.3rem;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+main {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+.page-section {
+  padding: 20px 0;
+  text-align: justify;
+}
+.page-section h1 {
+  font-size: 3.5rem;
+  padding-bottom: 20px;
+}
+.page-section h2,
+.page-section h3 {
+  text-align: center;
+  margin: 30px 0 15px;
+}
+.lead-center {
+  text-align: center;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  margin: 10px 0 20px;
+}
+.navbar-brand img {
+  height: 40px;
+}
+.navbar .nav-link {
+  font-size: 1.3rem;
+}
+.navbar .active > .nav-link {
+  text-decoration: underline;
+}
+.organised-by img {
+  height: 38px;
+}
+
+/* ---------- Announcement banner ---------- */
+.announce {
+  border: 2px solid #333;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  background: #faf884;
+  padding: 10px 25px;
+  margin: 0 auto 25px;
+  text-align: center;
+}
+.announce a {
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* ---------- Highlighted words ---------- */
+.text-highlight {
+  padding: 0 4px;
+}
+.text-highlight.yellow {
+  background-color: #faf884;
+}
+.text-highlight.red {
+  background-color: #ff8c8c;
+}
+.text-highlight.blue {
+  background-color: #84faea;
+}
+.text-highlight.green {
+  background-color: #dafa84;
+}
+.text-highlight.pink {
+  background-color: #f084fa;
+}
+.continued {
+  text-align: right;
+  font-style: italic;
+}
+
+/* ---------- Old zig-zag timeline ---------- */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto;
+}
+.timeline-event {
+  position: relative;
+  width: 70%;
+  padding: 20px 40px;
+  border: 3px solid #7fffd4;
+  text-align: center;
+}
+.timeline-event.left {
+  margin-right: auto;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  margin-left: 8%;
+}
+.timeline-event.right {
+  margin-left: auto;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  margin-right: 8%;
+}
+.timeline-event + .timeline-event {
+  margin-top: -3px;
+}
+.timeline-event:first-child {
+  border-top-color: transparent;
+}
+.timeline-event:last-child {
+  border-bottom-color: transparent;
+}
+.timeline-event .circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 50%;
+  background-color: #7fffd4;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.timeline-event.left .circle {
+  left: -23px;
+}
+.timeline-event.right .circle {
+  right: -23px;
+}
+.timeline-event h4 {
+  margin-bottom: 4px;
+}
+.timeline-event .when {
+  font-style: italic;
+  font-weight: 700;
+}
+.timeline-event.done {
+  opacity: 0.55;
+}
+.timeline-event.now .circle {
+  background-color: #68da46;
+  border: 2px solid #000;
+}
+@media (max-width: 767px) {
+  .timeline-event {
+    width: 90%;
+  }
+  .timeline-event.left,
+  .timeline-event.right {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ---------- Carousel (Bootstrap) in a sketched frame ---------- */
+.sketch-frame {
+  border: 2px solid #333;
+  border-radius: 25px 5px 25px 5px/5px 25px 5px 25px;
+  overflow: hidden;
+  margin: 20px auto 40px;
+  max-width: 900px;
+}
+.sketch-frame .carousel-item img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  .sketch-frame .carousel-item img {
+    height: 240px;
+  }
+}
+.sketch-img {
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 25px 5px 25px 5px/5px 25px 5px 25px;
+}
+figure.sketch {
+  text-align: center;
+  margin: 20px auto 30px;
+}
+figure.sketch figcaption {
+  font-size: 1rem;
+  color: #868e96;
+}
+
+/* ---------- Floating social buttons ---------- */
+.social {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+.social div {
+  height: 50px;
+  width: 50px;
+  margin: 16px;
+  text-align: center;
+}
+.social div a i {
+  font-size: 3.4rem;
+  opacity: 0.5;
+  transition: all 1s ease;
+}
+.social div a i:hover {
+  opacity: 1;
+}
+#social-facebook a i {
+  color: #3b5998;
+}
+#social-instagram a i {
+  color: #c13584;
+}
+#social-email a i {
+  color: #dd4b39;
+}
+#social-linkedin a i {
+  color: #0a66c2;
+}
+.social .x-logo {
+  width: 44px;
+  height: 44px;
+  margin-top: 4px;
+  fill: #000;
+  opacity: 0.5;
+  transition: all 1s ease;
+}
+.social .x-logo:hover {
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  .social {
+    display: none;
+  }
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  border-top: 2px solid #333;
+  border-radius: 255px 25px 0 25px/25px 225px 25px 0;
+  padding: 25px 10px 40px;
+  text-align: center;
+}
+footer.site-footer p,
+footer.site-footer a {
+  font-size: 1.1rem;
+}
+
+/* ---------- Tables ---------- */
+table.table {
+  text-align: center;
+}
+table.table tbody tr td,
+table.table th {
+  padding: 10px;
+  vertical-align: middle;
+}
+.gold,
+.gold > td {
+  background-color: gold;
+}
+.silver,
+.silver > td {
+  background-color: #adacac;
+}
+.bronze,
+.bronze > td {
+  background-color: #e7ab6f;
+}
+.sky,
+.sky > td {
+  background-color: #e7f5fe;
+}
+.saffron,
+.saffron > td,
+.saffron > th {
+  background-color: #ffc081;
+}
+.green,
+.green > td,
+.green > th {
+  background-color: #8fe78f;
+}
+.level-easy > td {
+  background-color: #b2ffb2;
+}
+.level-medium > td {
+  background-color: #f7ffb2;
+}
+.level-hard > td {
+  background-color: #ffd2b2;
+}
+.level-expert > td {
+  background-color: #ffb2b2;
+}
+.badge.medal {
+  font-size: 1rem;
+  border: 2px solid #333;
+  margin: 2px 6px;
+  color: #212529;
+}
+.badge.medal.gold {
+  background-color: gold;
+}
+.badge.medal.silver {
+  background-color: #adacac;
+}
+.badge.medal.bronze {
+  background-color: #e7ab6f;
+}
+.badge.medal.hm {
+  background-color: #e7f5fe;
+}
+.badge.medal.solution {
+  background-color: #84faea;
+}
+.leader-row td {
+  font-style: italic;
+}
+
+/* ---------- "In the Past" year tabs (old purple pills) ---------- */
+ul.nav-pill-primary li a {
+  color: #639;
+  text-decoration: none;
+  transition: all 1s ease;
+}
+ul.nav-pill-primary li a.active {
+  background-color: #639;
+  color: #fff;
+}
+.year-panel,
+.result-panel {
+  display: none;
+}
+.year-panel.show,
+.result-panel.show {
+  display: block;
+}
+
+/* ---------- Resources table controls ---------- */
+form.form-inline {
+  margin: 25px 0;
+  gap: 12px;
+}
+.legend span {
+  display: inline-block;
+  padding: 2px 12px;
+  margin: 2px;
+  border: 2px solid #333;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  font-size: 1.1rem;
+}
+
+/* ---------- Cards / FAQ ---------- */
+.card {
+  margin-bottom: 25px;
+}
+.card-header button {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #333;
+  width: 100%;
+  text-align: left;
+}
+.fee {
+  font-size: 2.2rem;
+  font-family: "Cabin Sketch", cursive;
+}
+.fee-note {
+  color: #555;
+}
+
+/* ---------- Sample problem ---------- */
+#hint {
+  display: none;
+}
+#hint.show {
+  display: block;
+}
+
+/* ---------- Team ---------- */
+.team-card {
+  text-align: center;
+}
+.team-card h5 {
+  margin-bottom: 2px;
+}
+.team-card p {
+  font-size: 1.1rem;
+  margin: 0;
+}

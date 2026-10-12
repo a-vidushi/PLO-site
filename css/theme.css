@@ -1,5 +1,4 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
-@import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);
+/* Fonts (Neucha, Cabin Sketch) and Font Awesome 4.7 are loaded with <link> tags in each page's <head>. */
 .gold,
 .gold > td,
 .gold > th,
@@ -488,8 +487,8 @@ pre {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-sans-serif: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 }

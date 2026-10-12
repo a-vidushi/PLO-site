@@ -300,18 +300,6 @@ table.table th {
 .green > th {
   background-color: #8fe78f;
 }
-.level-easy > td {
-  background-color: #b2ffb2;
-}
-.level-medium > td {
-  background-color: #f7ffb2;
-}
-.level-hard > td {
-  background-color: #ffd2b2;
-}
-.level-expert > td {
-  background-color: #ffb2b2;
-}
 .badge.medal {
   font-size: 1rem;
   border: 2px solid #333;
@@ -356,18 +344,21 @@ ul.nav-pill-primary li a.active {
   display: block;
 }
 
-/* ---------- Resources table controls ---------- */
+/* ---------- Resources page (copied from the old site) ----------
+   Row colours come from .level-color-00 … .level-color-10 in theme.css. */
 form.form-inline {
-  margin: 25px 0;
-  gap: 12px;
+  margin: 25px;
 }
-.legend span {
-  display: inline-block;
-  padding: 2px 12px;
-  margin: 2px;
-  border: 2px solid #333;
-  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-  font-size: 1.1rem;
+.level-color {
+  text-align: center;
+}
+.pad-vertical {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.pad-vertical h1 {
+  width: 100%;
 }
 
 /* ---------- Cards / FAQ ---------- */

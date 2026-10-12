@@ -122,30 +122,31 @@ function initHint() {
   });
 }
 
-/* Resources: search + difficulty filter */
+/* Resources: filter problems by year, as on the old site.
+   The table filters as you type, once a full 4-digit year is entered.
+   resources.html?year=2019 opens with that year already filled in. */
 function initResourcesTable() {
-  const table = document.getElementById("resourcesTable");
+  const table = document.getElementById("rsc-table");
   if (!table) return;
-  const search = document.getElementById("resourceSearch");
-  const level = document.getElementById("difficultySelect");
-  const count = document.getElementById("resourceCount");
+  const form = document.getElementById("rsc-search-form");
+  const input = document.getElementById("rsc-search-value");
   const rows = Array.from(table.tBodies[0].rows);
 
   function apply() {
-    const q = search.value.trim().toLowerCase();
-    const lv = level.value;
-    let shown = 0;
+    const year = input.value.trim();
     rows.forEach((r) => {
-      const ok =
-        (lv === "all" || r.dataset.difficulty === lv) && (!q || r.textContent.toLowerCase().includes(q));
-      r.style.display = ok ? "" : "none";
-      if (ok) shown++;
+      r.style.display = year.length !== 4 || r.dataset.year === year ? "" : "none";
     });
-    count.textContent = `Showing ${shown} of ${rows.length} problems`;
   }
 
-  search.addEventListener("input", apply);
-  level.addEventListener("change", apply);
+  const fromUrl = new URLSearchParams(location.search).get("year");
+  if (fromUrl) input.value = fromUrl;
+
+  input.addEventListener("input", apply);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    apply();
+  });
   apply();
 }
 

@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initCentreSearch();
 });
 
+/* Once the page has finished loading, fetch the remaining carousel
+   photos in the background so each slide is ready when it rotates in. */
+window.addEventListener("load", () => {
+  document.querySelectorAll('.carousel-item img[loading="lazy"]').forEach((img) => {
+    img.loading = "eager";
+  });
+});
+
 /* ---------------------------------------------------------
    PLO 2026-2027 key dates. Update these each cycle.
 --------------------------------------------------------- */

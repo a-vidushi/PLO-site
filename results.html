@@ -107,6 +107,14 @@
             </li>
             <li class="nav-item active"><a class="nav-link" href="results.html">Results</a></li>
           </ul>
+          <a
+            class="btn btn-outline-primary btn-sm signin-tab"
+            href="#"
+            data-portal-show="portal"
+            data-portal-href="/"
+            hidden
+            >Sign in</a
+          >
           <span class="organised-by navbar-text">
             Organised by <img src="images/iiit-logo.png" alt="IIIT Hyderabad" />
           </span>
@@ -122,14 +130,20 @@
     <main class="container">
       <section class="page-section">
         <h1>Results</h1>
-        <p class="lead-center">
-          <strong>PLO 2027 Round 1</strong> will be held on <strong>29 November 2026</strong>. Round 1
-          results, and the list of students selected for Round 2, will be announced here on
-          <strong>15 January 2027</strong>.
-        </p>
-        <p class="lead-center">
-          Once results are out, students will be able to check their scores and rankings on this page. Keep
-          checking the website for updates!
+        <div data-portal-hide="results">
+          <p class="lead-center">
+            <strong>PLO 2027 Round 1</strong> will be held on <strong>29 November 2026</strong>. Round 1
+            results, and the list of students selected for Round 2, will be announced here on
+            <strong>15 January 2027</strong>.
+          </p>
+          <p class="lead-center">
+            Once results are out, students will be able to check their scores and rankings on this page. Keep
+            checking the website for updates!
+          </p>
+        </div>
+        <p class="portal-callout lead-center" data-portal-show="results" hidden>
+          <span class="text-highlight green">PLO 2027 Round 1 results are out!</span>
+          <a href="#" data-portal-href="/">Sign in to see yours →</a>
         </p>
         <p class="continued">
           <span class="text-highlight yellow">Looking for older results?</span>

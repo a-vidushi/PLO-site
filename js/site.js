@@ -11,7 +11,59 @@ document.addEventListener("DOMContentLoaded", () => {
   initResourcesTable();
   initResultsArchive();
   initCentreSearch();
+  initPortal();
 });
+
+/* ---------------------------------------------------------
+   Hall ticket & results portal (the private plo-portal backend).
+   Put its address here once it's live, e.g. "https://plo-portal.iiit.ac.in".
+   Leave it empty and the site never shows any hall ticket or results links.
+--------------------------------------------------------- */
+const PORTAL_URL = "";
+
+/* Ask the portal what's been released, then update the page:
+   - data-portal-show="portal" (the navbar "Sign in" tab) appears whenever the portal is reachable;
+   - data-portal-show="hall_tickets|results" notices appear while that's released;
+   - data-portal-hide="…" text disappears while that's released;
+   - data-portal-href="/" links point at the portal's sign-in page.
+   If the portal can't be reached, the page stays as it is. */
+async function initPortal() {
+  if (!PORTAL_URL) return;
+  const base = PORTAL_URL.replace(/\/+$/, "");
+  let status;
+  try {
+    const resp = await fetch(base + "/status.json", { cache: "no-store" });
+    if (!resp.ok) return;
+    status = await resp.json();
+  } catch {
+    return;
+  }
+  const isOpen = { portal: true, hall_tickets: !!status.hall_tickets_open, results: !!status.results_open };
+
+  document.querySelectorAll("[data-portal-href]").forEach((a) => {
+    a.href = base + a.dataset.portalHref;
+  });
+  document.querySelectorAll("[data-portal-show]").forEach((el) => {
+    el.hidden = !isOpen[el.dataset.portalShow];
+  });
+  document.querySelectorAll("[data-portal-hide]").forEach((el) => {
+    el.hidden = !!isOpen[el.dataset.portalHide];
+  });
+
+  // The announcement strip on every page takes over while either is open (results first).
+  const text = document.getElementById("banner-text");
+  const link = document.getElementById("banner-link");
+  if (!text || !link) return;
+  if (isOpen.results) {
+    text.textContent = "PLO 2027 Round 1 results are out!";
+    link.textContent = "Sign in to see yours →";
+    link.href = base + "/";
+  } else if (isOpen.hall_tickets) {
+    text.textContent = "Hall tickets for PLO 2027 Round 1 are out!";
+    link.textContent = "Sign in to download yours →";
+    link.href = base + "/";
+  }
+}
 
 /* Once the page has finished loading, fetch the remaining carousel
    photos in the background so each slide is ready when it rotates in. */

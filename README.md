@@ -46,6 +46,28 @@ change it on all pages.
 4. `previous.html`: add a year pill (`data-year`) and its `year-panel` blocks with ids like `2027-iol`,
    `2027-camp` and `2027-plo`.
 
+## Hall tickets and results
+
+The website has no student data. Hall tickets and results live in the private portal
+(`plo-india/plo-portal`). Once the portal is live, put its address in `PORTAL_URL` at the top of `js/site.js`.
+
+The site then checks the portal on every page load:
+
+- A **Sign in** tab appears in the navbar corner of every page. It leads to the portal's single sign-in,
+  where students use their roll number and date of birth and see everything that's been released.
+- While an admin has **Open hall tickets** on: the announcement strip says "Hall tickets … are out!" and a
+  highlighted notice appears on the home page and the Centres page.
+- While **Release results** is on: the strip announces the results (results take priority), and notices appear
+  on the home page and the Results page, where the "results will be announced…" text is hidden.
+
+Every link goes to the same sign-in page. Turning a switch off reverts the site on the next page load. If
+`PORTAL_URL` is empty or the portal can't be reached, the site simply shows its normal content, with no Sign in
+tab.
+
+The notices are plain HTML marked `hidden` with `data-portal-show="hall_tickets"` or `"results"` (the tab uses
+`"portal"`); edit their text in the HTML like anything else. Admins don't sign in here: they use the portal's
+own admin address.
+
 ## Social links
 
 Facebook, Instagram, X (Twitter), LinkedIn and email links appear twice on every page: in the footer and in

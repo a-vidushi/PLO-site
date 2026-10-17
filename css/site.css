@@ -399,3 +399,23 @@ form.form-inline {
   font-size: 1.1rem;
   margin: 0;
 }
+
+/* ---------- Hall ticket / results notices (shown by site.js when the portal opens them) ---------- */
+.portal-callout {
+  border: 2px solid #333;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  padding: 10px 20px;
+  margin: 10px auto 25px;
+  max-width: 760px;
+  font-size: 1.4rem;
+}
+.portal-callout a {
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+/* Navbar "Sign in" tab (shown by site.js once the hall ticket & results portal is set up) */
+.signin-tab {
+  margin-right: 14px;
+  font-size: 1.1rem;
+}
